@@ -1,0 +1,18 @@
+<nav class="nav-bar">
+
+  <div class="container">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <a href="#" class="nav-bar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <ul class="nav-bar-menu" [hidden]="!exibindoMenu">
+    <li class="nav-bar-usuario">Dayline Mikaella</li>
+    <li class="nav-bar-menu-item"> <a href="#">Lançamentos</a> </li>
+    <li class="nav-bar-menu-item"> <a href="#">Pessoas</a> </li>
+    <li class="nav-bar-menu-item"> <a href="#">Logout</a> </li>
+  </ul>
+
+</nav>
