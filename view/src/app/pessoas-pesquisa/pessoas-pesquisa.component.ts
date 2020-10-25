@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PessoasPesquisaComponent {
 
-  first = 0;
-  rows = 10;
   pessoas = [
     {
       "pessoaid": 1,
@@ -95,25 +93,5 @@ export class PessoasPesquisaComponent {
       }
   }
   ];
-
-  next() {
-    this.first = this.first + this.rows;
-  }
-
-  prev() {
-      this.first = this.first - this.rows;
-  }
-
-  reset() {
-      this.first = 0;
-  }
-
-  isLastPage(): boolean {
-      return this.pessoas ? this.first === (this.pessoas.length - this.rows) : true;
-  }
-
-  isFirstPage(): boolean {
-      return this.pessoas ? this.first === 0 : true;
-  }
 
 }

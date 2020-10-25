@@ -1,0 +1,65 @@
+<div class="container">
+  <form #pessoaForm='ngForm'>
+    <div class="p-grid">
+        <div class="p-col-12">
+          <h1>Cadastro de Pessoa</h1>
+
+          <div class="p-fluid p-formgrid p-grid" style="margin-top: 10px;">
+            <div class="p-field p-col-12 p-md-12">
+              <label for="nome">Nome</label>
+              <input pInputText id="nome" type="text" name="pessoaNome" ngModel #pessoaNome="ngModel" required minlength="5">
+              <app-message [control]="pessoaNome" error="required"  texto="O campo Nome é obrigatório."></app-message>
+              <app-message [control]="pessoaNome" error="minlength" texto="Informe ao menos 5 caracteres."></app-message>
+            </div>
+
+            <div class="p-field p-col-12 p-md-10">
+              <label for="logradouro">Logradouro</label>
+              <input pInputText id="logradouro" type="text" name="pessoaEndLogradouro" ngModel #pessoaEndLogradouro="ngModel" required >
+              <app-message [control]="pessoaEndLogradouro" error="required"  texto="O campo Logradouro é obrigatório."></app-message>
+            </div>
+
+            <div class="p-field p-col-12 p-md-2">
+              <label for="numero">Número</label>
+              <p-inputNumber inputId="numero" [showButtons]="true" [min]="0" name="pessoaEndNumero" ngModel #pessoaEndNumero="ngModel" required></p-inputNumber>
+              <app-message [control]="pessoaEndNumero" error="required"  texto="Informe o número."></app-message>
+            </div>
+
+            <div class="p-field p-col-12 p-md-4">
+              <label for="comp">Complemento</label>
+              <input id="comp" type="text" pInputText>
+            </div>
+
+            <div class="p-field p-col-12 p-md-4">
+              <label for="bairro">Bairro</label>
+              <input pInputText id="bairro" type="text" name="pessoaEndBairro" ngModel #pessoaEndBairro="ngModel" required >
+              <app-message [control]="pessoaEndBairro" error="required"  texto="O campo Bairro é obrigatório"></app-message>
+            </div>
+
+            <div class="p-field p-col-12 p-md-4">
+              <label for="cep">CEP</label>
+              <p-inputMask inputId="cep" mask="99.999-999" name="pessoaEndCep" ngModel #pessoaEndCep="ngModel" required></p-inputMask>
+              <app-message [control]="pessoaEndCep" error="required"  texto="O campo CEP é obrigatório"></app-message>
+            </div>
+
+            <div class="p-field p-col-12 p-md-6">
+              <label for="cidade">Cidade</label>
+              <input pInputText id="cidade" type="text" name="pessoaEndCidade" ngModel #pessoaEndCidade="ngModel" required>
+              <app-message [control]="pessoaEndCidade" error="required"  texto="O campo CEP é obrigatório"></app-message>
+            </div>
+
+            <div class="p-field p-col-12 p-md-6">
+              <label for="estado">Estado</label>
+              <input pInputText id="estado" type="text" name="pessoaEndEstado" ngModel #pessoaEndEstado="ngModel" required>
+              <app-message [control]="pessoaEndEstado" error="required"  texto="O campo CEP é obrigatório"></app-message>
+            </div>
+          </div>
+          <div>
+            <button pButton [disabled]="pessoaForm.invalid" style="margin-right: 2px;" label="Salvar" type="submit"></button>
+            <button pButton label="Novo" type="button" class="p-button-info" ></button>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+
+
