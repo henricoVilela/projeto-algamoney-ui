@@ -16,6 +16,7 @@ export class MessageComponent {
   @Input() texto: string;
   @Input() control: FormControl;
 
+
   exiteErro(): boolean {
     return this.control.hasError(this.error) && this.control.dirty;
   }
