@@ -12,7 +12,7 @@
 
   <ng-template pTemplate="body" let-lancamento>
     <tr>
-        <td><span class="p-column-title">Pessoa:</span>{{lancamento.pessoa}}</td>
+        <td><span class="p-column-title">Pessoa:</span>{{lancamento.pessoa.nome}}</td>
         <td><span class="p-column-title">Descriçao:</span>{{lancamento.descricao}}</td>
         <td class="col-data"><span class="p-column-title">Vencimento:</span>{{lancamento.dataVencimento}}</td>
         <td class="col-data"><span class="p-column-title">Pagamento:</span>{{lancamento.dataPagamento}}</td>

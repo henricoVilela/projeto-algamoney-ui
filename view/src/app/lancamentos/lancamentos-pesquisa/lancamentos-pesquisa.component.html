@@ -1,26 +1,28 @@
 
 <div class="container">
   <div class="p-grid">
-    <div class="p-col-12">
-      <h1>Lançamentos</h1>
+    <form autocomplete="off" (ngSubmit)="pesquisar()">
 
+      <div class="p-col-12">
+        <h1>Lançamentos</h1>
 
-      <div class="p-fluid p-formgrid p-grid">
-        <div class="p-field p-col-12">
-          <label for="descricao">Descrição</label>
-          <input id="descricao" type="text" pInputText />
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col-12">
+            <label for="descricao">Descrição</label>
+            <input id="descricao" type="text" name="descricao" [(ngModel)]="descricao" pInputText />
+          </div>
+
+          <div class="p-field p-col-12 p-md-12">
+            <label for="range">Range</label>
+            <p-calendar [(ngModel)]="rangeDates" name="rangeDates" dateFormat="dd/mm/yy" [locale]="br" selectionMode="range" [readonlyInput]="true" inputId="range"></p-calendar>
+          </div>
         </div>
 
-        <div class="p-field p-col-12 p-md-12">
-          <label for="range">Range</label>
-          <p-calendar dateFormat="dd/mm/yy" [locale]="br" selectionMode="range" [readonlyInput]="true" inputId="range"></p-calendar>
+        <div style="margin-top: 10px;">
+          <p-button label="Pesquisar" type="submit" ></p-button>
         </div>
       </div>
-
-      <div style="margin-top: 10px;">
-        <p-button label="Pesquisar" type="submit"></p-button>
-      </div>
-    </div>
+    </form>
   </div>
 
   <div style="margin-top: 20px;" class="p-grid">

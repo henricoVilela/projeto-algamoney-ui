@@ -1,3 +1,4 @@
+import { OauthService } from './seguranca/oauth.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,8 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LancamentosModule } from './lancamentos/lancamentos.module';
+import { LancamentoService } from './lancamentos/lancamento.service';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { CoreModule } from './core/core.module';
+
 
 
 
@@ -28,7 +31,7 @@ import { CoreModule } from './core/core.module';
 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LancamentoService, OauthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

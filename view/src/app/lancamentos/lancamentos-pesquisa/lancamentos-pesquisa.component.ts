@@ -1,4 +1,6 @@
+import { LancamentoFiltro, LancamentoService } from './../lancamento.service';
 import { Component, OnInit } from '@angular/core';
+import { Lancamento } from '../model/lancamento.model';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -9,14 +11,15 @@ export class LancamentosPesquisaComponent implements OnInit{
   // tslint:disable: quotemark
   // tslint:disable: typedef
 
+  constructor(private lancamentoService: LancamentoService ){}
 
   br: any;
-  lancamentos = [
-    { tipo: "RECEITA", descricao: "Venda de Software", dataVencimento: "18/09/2020", dataPagamento: null, valor: 2500, pessoa: "Atacado Brasil"},
-    { tipo: "DESPESA", descricao: "Compra de Pão", dataVencimento: "22/09/2020", dataPagamento: null, valor: 5.50, pessoa: "Padaria Tropical"},
-    { tipo: "RECEITA", descricao: "Venda de Carro", dataVencimento: "30/09/2020", dataPagamento: null, valor: 25000, pessoa: "Garagem Brasil"},
-    { tipo: "DESPESA", descricao: "Compra de ovos", dataVencimento: "20/10/2020", dataPagamento: "18/10/2020", valor: 12.75, pessoa: "Ovos Mantiqueiras"}
-  ];
+  lancamentos: Lancamento[];
+  descricao: string;
+  dataVencimentoInicio: Date;
+  dataVencimentoFim: Date;
+  rangeDates: Date[];
+
   ngOnInit() {
     this.br = {
       firstDayOfWeek: 0,
@@ -30,7 +33,29 @@ export class LancamentosPesquisaComponent implements OnInit{
       today: 'Hoje',
       clear: 'Vazio'
     };
+
+    this.pesquisar();
   }
 
+  pesquisar(){
+
+    if(this.rangeDates){
+      if(this.rangeDates[0]){
+        this.dataVencimentoInicio = this.rangeDates[0];
+      }
+      if(this.rangeDates[1]){
+        this.dataVencimentoFim    = this.rangeDates[1];
+      }
+    }
+
+    const filtro: LancamentoFiltro = {
+      descricao: this.descricao,
+      dataVencimentoFim: this.dataVencimentoFim,
+      dataVencimentoInicio: this.dataVencimentoInicio
+    };
+    this.lancamentoService.pesquisar(filtro).subscribe(result =>{
+      this.lancamentos = result.content;
+    });;
+  }
 
 }
