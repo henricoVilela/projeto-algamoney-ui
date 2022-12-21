@@ -1,4 +1,5 @@
 # AlgamoneyUi
+Project developed in the fullstack angular+springRest course of algaworks. [original version](https://github.com/algaworks/curso-angular-rest-spring-boot-ui)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
